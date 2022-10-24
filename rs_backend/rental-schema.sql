@@ -33,7 +33,6 @@ CREATE TABLE bookings (
   status VARCHAR(10) DEFAULT 'unpaid',
   payment INTEGER,
   UNIQUE (property_id, date)
-  
 );
 
 
