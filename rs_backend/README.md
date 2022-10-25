@@ -44,10 +44,19 @@ The site is deployed on Heroku and can be found here [<img src="images/rentMySpa
 * To Book a property click 'Make Reservations' from listings page.
 * My profile displays a list of properties and bookings for the user.
 
-## How to run the application
+## How to run the application in your local machine
 * Download from the git hub link ( or fork)
+* To create db and schemas in terminal run script psql<rental.sql
 * To start the server: 1) cd backend 2) npm install 3) npm start
 * To start the client: 2) cd frontend 2) npm install 3) npm start
+
+
+## How to run the tests
+* The testing of the application is done using jest
+* Create test db refer to config.js
+* psql < rental_test.sql
+* To run individual tests:  npm test auth.test.js 
+* Use postman to test the api
 
 ## API end points
 https://docs.google.com/document/d/1cGZTy8YXECu6Yb2IhojzNHBygbxbdH0AART1Q4dRtrs/edit?usp=sharing
