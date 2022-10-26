@@ -65,4 +65,8 @@ https://docs.google.com/document/d/1cGZTy8YXECu6Yb2IhojzNHBygbxbdH0AART1Q4dRtrs/
 ## DB Schema
 https://docs.google.com/document/d/1TpySxFjMZNoi6P3eLA5IZusexQ5Ruj0LUNHSJKAKKUc/edit
 
+## Stretch Goals
+* Use Venmo/paypal api for payments
+* Implement various search filters
+* Use cloud server to store image instead of heroku
 
