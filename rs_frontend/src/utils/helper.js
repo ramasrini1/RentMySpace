@@ -22,4 +22,8 @@ function getTotalCost(start_time, end_time, cost_per_hr){
   return totalCost.toFixed(2);
 }
 
-module.exports = { formatTime, getTotalCost };
+export {
+  formatTime,
+  getTotalCost
+}
+//module.exports = { formatTime, getTotalCost };
