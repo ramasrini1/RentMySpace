@@ -12,7 +12,6 @@ function AddProperty() {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   async function handleAddProperty( data) { 
-    
     let newPropertyId;
     try {
       data.property_owner = auth.user;
@@ -32,7 +31,6 @@ function AddProperty() {
       console.log("in catch block " + errors);
       alert("Error " + errors);
     }
-
   }
 
   const handleError = (errors) => {};

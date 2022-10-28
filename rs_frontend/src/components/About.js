@@ -2,6 +2,7 @@ const About = () => {
   return (
     <div className="container">
       <h4 className="mt-4">Rent My Space</h4>
+      <hr></hr>
       <div className="mt-4">Have you gone to a beach on weekends and struggled to get a parking spot or 
       had trouble in finding a place to park near big events like the 4th of 
       July firework ? </div> 

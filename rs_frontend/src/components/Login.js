@@ -1,33 +1,31 @@
-import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from './auth';
 import RentalApi from "../api/api";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 
 function Login(){
-  const [LoginData, setLoginData] = useState({
-    username: "",
-    password: ""
-  });
+ 
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const handleError = (errors) => {};
 
-  //const [formErrors, setFormErrors] = useState([]);
+  const registerOptions = {
+    username: { required: "Username is required" },
+    password: { required: "Password is required" },
+};
+
   const navigate = useNavigate()
   const auth = useAuth();
 
-  async function  handleLogin(evt) {
+  async function handleLogin( data, evt ) { 
     evt.preventDefault();
     try {
-
-      if (LoginData.username === "" || LoginData.password === "" ){
-        throw new Error("Enter valid username/password");
-      }
-
       let user = {
-        username: LoginData.username,
-        password: LoginData.password,
+        username: data.username,
+        password: data.password,
       }
-   
+      console.log("form data " + user.password)
       let result = await RentalApi.login(user);
       if (result.token ){
         user.token = result.token;
@@ -39,59 +37,44 @@ function Login(){
       }
     } catch(error) {
       console.log(error);
-      alert(error);
+      alert("Login Failed, Sign up if you don't have an account");
     }
   }
-
-    /** Update form data field */
-    function handleChange(evt) {
-      const { name, value } = evt.target;
-      setLoginData(data => ({ ...data, [name]: value }));
-    }
-  
   return (
-    <div className="LoginForm">
-      <div className="container col-md-6 offset-md-3 col-lg-4 offset-lg-4">
-          <h2 className="mb-3">Login</h2>
-           <div className="card">
-             <div className="card-body">
-             <form onSubmit={handleLogin}>
-                <div className="form-group">
-                   <label>Username</label>
-                   <input
-                       name="username"
-                      className="form-control"
-                      value={LoginData.username}
-                      onChange={handleChange}
-                  />
-               </div>
-                <div className="form-group">
-                   <label>Password</label>
-                   <input
-                      type="password"
-                      name="password"
-                      className="form-control"
-                      value={LoginData.password}
-                      onChange={handleChange}
-                  />
-                </div>
-                <button
-                    type="submit"
-                    className="btn btn-primary mt-2 float-right"
-                    onSubmit={handleLogin}
-                >
-                  Submit
-                </button>
-              </form>
-              <div className="mt-4">
-                If you don't have an account<Link to={`/signup`}>
+    <div className="col-md-6 col-lg-4 offset-md-3 offset-lg-4">
+      <h3 className="mt-4">Login Form</h3>
+      <hr></hr>
+      <div className="card mt-4">
+        <div className="card-body">
+          <form onSubmit={handleSubmit(handleLogin, handleError)}>
+            <div className="form-group">
+                <label>Username</label>
+                <input
+                    name="username"
+                    className="form-control" 
+                    type="text" {...register('username', registerOptions.username) }/>     
+                  <small className="text-danger">
+                        {errors?.username && errors.username.message}
+                  </small>
+            </div>
+            <div className="form-group">
+              <label>Password</label>
+              <input name="password" className="form-control" 
+                  type="password" {...register('password', registerOptions.password) }/>
+                <small className="text-danger">
+                    {errors?.password && errors.password.message}
+                </small>
+            </div>
+            <button className="mt-4">Submit</button>
+          </form>
+          <div className="mt-4">
+                <b>If you don't have an account</b><Link to={`/signup`}>
                             <button className="btn btn-link">Sign Up</button>
                     </Link>
-               </div>
-            </div>
           </div>
         </div>
       </div>
-  );
+    </div>
+    );
 }
 export default Login;
