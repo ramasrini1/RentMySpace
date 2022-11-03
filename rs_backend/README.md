@@ -56,6 +56,7 @@ The site is deployed on Heroku and can be found here [<img src="images/rentMySpa
 * Create test db refer to config.js
 * psql < rental_test.sql
 * To run individual tests:  npm test auth.test.js 
+* npm test
 * Use postman to test the api
 
 ## API end points
