@@ -14,7 +14,7 @@ nodes app.test.js (to test each file)
 node test ( to run test suites);
 
 ## How to Deploy the frontend of the app
-# Prior to this backend has to be deployed on Heroku
+### Prior to this backend has to be deployed on Heroku
 Make sure surge is installed globally
 npm install --global surge
 REACT_APP_BASE_URL=YOUR_HEROKU_BACKEND_URL npm run build
