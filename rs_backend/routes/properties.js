@@ -69,7 +69,7 @@ router.post("/:username", ensureCorrectUserOrAdmin, async function (req, res, ne
  * Patches property data.
  * Authorization required: admin/user
  */
-router.patch("/:property_id", ensureCorrectUserOrAdmin, async function (req, res, next) {
+router.patch("/:property_id/:username", ensureCorrectUserOrAdmin, async function (req, res, next) {
   try {
     const validator = jsonschema.validate(req.body, propertyUpdateSchema);
     if (!validator.valid) {

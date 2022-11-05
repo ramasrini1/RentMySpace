@@ -36,18 +36,19 @@ function Bookings(){
   async function getBlockedDates(){
     try {
       const list = await RentalApi.getBookings({property_id});
+      //console.log("list is " + list.property[0].date);
   
       if ( list ){
         //TODO:
         //setBlockedDates(list.rentals );
         let disabledDates = [];
-        console.log("Rentals " + list.rentals);
-        list.rentals.map((b, i) => {
+        //console.log("Rentals " + list.property);
+        list.property.map((b, i) => {
           let dateStr = (b.date).substring(0,10);
           let y = dateStr.substring(0,4);
           let m = dateStr.substring(5, 7);
           let d = dateStr.substring(8, 10);
-          console.log("date " + y + " " + m + " " + d );
+          //console.log("date " + y + " " + m + " " + d );
           m = m -1; //counting starts from 0
           disabledDates.push(new Date(y, m, d));
         });
@@ -56,7 +57,7 @@ function Bookings(){
       }
       //toggleBlocked();
     } catch(error) {
-      console.log(error)
+      console.log("err in catch " + error)
     }
   }
 

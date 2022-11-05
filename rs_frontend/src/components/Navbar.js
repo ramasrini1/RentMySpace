@@ -16,7 +16,7 @@ export const Navbars = () => {
 return (
   <nav className="container mt-4">
       <NavLink to='/' style={navLinkStyles}>
-        <b style={{ color: "red" }}><a href="" className="logo"><img className="logo" src={logo} alt=""></img></a> RMS</b>
+        <b style={{ color: "red" }}><span className="logo"><img className="logo" src={logo} alt=""></img>&nbsp;&nbsp;RMS</span></b>
       </NavLink>
       <NavLink to='/' style={navLinkStyles}>
         Home

@@ -1,3 +1,27 @@
+## This is the front end for RentMySpace App
+## Tools Used:
+React Frontend
+Google Maps Api Integration
+Date Picker
+Calendar
+File upload ( Loads image file from client to server machine)
+Bootstrap libraries
+
+## Testing the app
+Used react jest libraries for testing(smoke and snapshot)
+cd rs_frontend
+nodes app.test.js (to test each file)
+node test ( to run test suites);
+
+## How to Deploy the frontend of the app
+# Prior to this backend has to be deployed on Heroku
+Make sure surge is installed globally
+npm install --global surge
+REACT_APP_BASE_URL=YOUR_HEROKU_BACKEND_URL npm run build
+$ cp build/index.html build/200.html
+$ surge build
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +92,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+

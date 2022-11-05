@@ -55,7 +55,9 @@ class RentalApi {
       //url = `${BASE_URL}/booking?property_id=${property_id}`;
       url = `${BASE_URL}/property/property_booking/${property_id}`;
     }
+    console.log("url is " + url)
     let res = await axios.get(url);
+    console.log("res " + res.data)
     return res.data;
   }
 

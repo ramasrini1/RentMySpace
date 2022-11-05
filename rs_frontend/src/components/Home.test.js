@@ -14,3 +14,13 @@ it("matches snapshot", function () {
   expect(asFragment()).toMatchSnapshot();
 });
 
+it("checks for listing", function () {
+  const { getByText } = render(<Home />);
+  let h = getByText("Property Listings:");
+  expect(h).toHaveTextContent("Property Listings:");
+});
+
+// smoke test
+it("renders without crashing", function() {
+  render(<Home />);
+});

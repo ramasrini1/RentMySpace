@@ -81,7 +81,7 @@ router.post("/:username", ensureCorrectUserOrAdmin, async function (req, res, ne
  * Authorization required: admin/user
  */
 
-router.patch("/:booking_id", ensureCorrectUserOrAdmin, async function (req, res, next) {
+router.patch("/:booking_id/:username", ensureCorrectUserOrAdmin, async function (req, res, next) {
   try {
     const validator = jsonschema.validate(req.body, bookingUpdateSchema);
     if (!validator.valid) {
