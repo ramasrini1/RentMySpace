@@ -1,8 +1,6 @@
 # RentMySpace
 A repo to rentMySpace single page app. (React Front End, Express Backend)
 
-
-# RentMySpace
 ## Description
 Have you gone to a beach on weekends and struggled to get a parking spot or 
 had trouble in finding a place to park near big events like the 4th of July firework ? 
